@@ -7,8 +7,9 @@ public class CharacterTwoController : CharacterController
     private InputAction flyAction;
 
     private bool isGrounded = false;
-    [SerializeField] private float jumpForce = 7;
-    [SerializeField] private float timeOfFlight = 3;
+    private bool isFlying = false;
+    [SerializeField] private float flightForce = 5;
+    [SerializeField] private float maxStamina = 3;
 
     // Enable Input System Actions only when object is enabled in scene
     void OnEnable()
@@ -16,21 +17,27 @@ public class CharacterTwoController : CharacterController
         // Get the actions through InputSystem
         flyAction ??= playerInput.actions["Fly"];
 
-        flyAction.performed  -= StartFly;
-        flyAction.performed  += StartFly;
+        flyAction.performed -= StartFly;
+        flyAction.performed += StartFly;
     }
     void OnDisable()
     {
         if (flyAction != null)
         {
-            flyAction.performed  -= StartFly;
+            flyAction.performed -= StartFly;
         }
     }
 
-    private void StartFly(InputAction.CallbackContext callback) {
+    private void StartFly(InputAction.CallbackContext callback)
+    {
         if (!isGrounded) return;
 
-        playerRb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+        playerRb.AddForce(Vector2.up * flightForce, ForceMode.Impulse);
         isGrounded = false;
+    }
+
+    private void StopFly()
+    {
+        
     }
 }

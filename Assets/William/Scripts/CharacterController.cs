@@ -59,18 +59,21 @@ public class CharacterController : MonoBehaviour
         inputDirection = moveAction.ReadValue<Vector2>();
     }
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         Vector3 movement = new Vector3(inputDirection.x * speed, playerRb.linearVelocity.y, inputDirection.y * speed);
         playerRb.linearVelocity = movement;
 
-        
+        characterAnimator.SetFloat("f_ySpeed", playerRb.linearVelocity.y);
+
+
         //characterAnimator.SetFloat("f_zSpeed", Math.Abs(playerRb.linearVelocity.z));
 
         if (inputDirection.y > 0)
         {
             characterAnimator.SetBool("b_isFrontOriented", false);
-        } else if (inputDirection.y < 0)
+        }
+        else if (inputDirection.y < 0)
         {
             characterAnimator.SetBool("b_isFrontOriented", true);
         }
@@ -89,6 +92,8 @@ public class CharacterController : MonoBehaviour
         {
             characterAnimator.SetBool("b_isWalking", false);
         }
+
+        UpdateAnimatorSet();
     }
 
     // 
@@ -100,4 +105,19 @@ public class CharacterController : MonoBehaviour
             characterManagerScript.ToggleCharacter();
         }
     } 
+    
+    private void UpdateAnimatorSet()
+    {
+        int set = 0;
+
+        bool isGhost = characterManagerScript.selectedCharacter == CharacterManager.CharacterType.two;
+        bool isFront = characterAnimator.GetBool("b_isFrontOriented");
+
+        if (!isGhost && isFront) set = 0;
+        else if (!isGhost && !isFront) set = 1;
+        else if (isGhost && isFront) set = 2;
+        else if (isGhost && !isFront) set = 3;
+
+        characterAnimator.SetInteger("i_currentState", set);
+    }
 }

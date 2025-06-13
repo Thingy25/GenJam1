@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem; // Necesario si usas el Input System
+using UnityEngine.InputSystem; 
 
 
 public class PlayerMovementDependentChild : MonoBehaviour
@@ -24,7 +24,6 @@ public class PlayerMovementDependentChild : MonoBehaviour
 
     void Awake()
     {
-        // Aseg�rate de que este script est� en el mismo GameObject que PlayerInput
         playerInput = GetComponentInParent<PlayerInput>(); // Busca el PlayerInput en los padres si no est� en el mismo GO
         if (playerInput == null)
         {
@@ -54,13 +53,6 @@ public class PlayerMovementDependentChild : MonoBehaviour
             currentInputDirection = moveAction.ReadValue<Vector2>();
         }
 
-        // Calcula la posici�n objetivo local para el GameObject anidado
-        // La direcci�n de input es 2D (X, Y). La convertimos a 3D (X, Z) para el movimiento en el suelo.
-        /*Vector3 targetLocalPosition = new Vector3(
-            currentInputDirection.x * displacementMagnitude,
-            0f, // No movemos en Y localmente a menos que sea un juego 3D con movimiento vertical por input
-            currentInputDirection.y * displacementMagnitude
-            );*/
 
         if (currentInputDirection.magnitude > 0.01f) // Evitar normalizar un vector casi cero
         {
@@ -71,17 +63,7 @@ public class PlayerMovementDependentChild : MonoBehaviour
             // Si la direcci�n ha cambiado, actualiza la posici�n del hijo
             UpdateChildPositionInstant();
         }
-        // Opcional: Si quieres que el objeto suba/baje ligeramente al moverse:
-        // targetLocalPosition.y = Mathf.Sin(Time.time * moveSpeed) * verticalBobAmount;
-
-        // Mueve el objeto anidado suavemente hacia la posici�n objetivo
-        // Vector3.Lerp interpola entre la posici�n actual y la objetivo
-        /*
-        childToMove.localPosition = Vector3.Lerp(
-            childToMove.localPosition, // Posici�n local actual del hijo
-            targetLocalPosition,      // Posici�n local deseada
-            Time.deltaTime * smoothSpeed // Velocidad de interpolaci�n
-        );*/
+        
     }
 
     private void UpdateChildPositionInstant()

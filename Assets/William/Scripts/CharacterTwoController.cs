@@ -21,6 +21,7 @@ public class CharacterTwoController : CharacterController
     void OnEnable()
     {
         characterSpriteRenderer.sprite = characterTwoSprite;
+        Debug.Log(characterSpriteRenderer.sprite.name);
         // characterCollider.center = new Vector3(-0.05f, 2.95f, 0);
         // characterCollider.size = new Vector3(7, 7, 0.2f);
 

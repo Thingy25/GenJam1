@@ -19,6 +19,7 @@ public class CharacterOneController : CharacterController
     void OnEnable()
     {
         characterSpriteRenderer.sprite = characterOneSprite;
+        Debug.Log(characterSpriteRenderer.sprite.name);
         // characterCollider.center = new Vector3(0.15f, 3.6f, 0);
         // characterCollider.size = new Vector3(4, 7.3f, 0.2f);
 

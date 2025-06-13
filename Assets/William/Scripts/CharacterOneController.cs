@@ -6,13 +6,21 @@ public class CharacterOneController : CharacterController
     // Variables
     private InputAction jumpAction;
 
-    [SerializeField] private bool isGrounded = false;
+    [SerializeField]private bool isGrounded = false;
     [SerializeField] private float jumpForce;
     [SerializeField] private float smoothFallFactor;
+
+    public Sprite characterOneSprite;
+    // private Vector3 characterOneColliderCenter = new Vector3(0.15f, 3.6f, 0);
+    // private Vector3 characterOneColliderSize = new Vector3(4, 7.3f, 0.2f);
 
     // Enable Input System Actions only when object is enabled in scene
     void OnEnable()
     {
+        spriteRendererCharacter.sprite = characterOneSprite;
+        // characterCollider.center = new Vector3(0.15f, 3.6f, 0);
+        // characterCollider.size = new Vector3(4, 7.3f, 0.2f);
+
         // Get the actions through InputSystem
         jumpAction ??= playerInput.actions["Jump"];
 

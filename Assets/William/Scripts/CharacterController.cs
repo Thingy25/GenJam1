@@ -5,6 +5,7 @@ public class CharacterController : MonoBehaviour
 {
     // Variables
     private CharacterManager characterManagerScript;
+    protected SpriteRenderer spriteRendererCharacter;
 
     protected PlayerInput playerInput;
     private InputAction moveAction;
@@ -12,6 +13,7 @@ public class CharacterController : MonoBehaviour
     private InputAction switchCharacter;
 
     protected Rigidbody playerRb;
+    protected BoxCollider characterCollider;
 
     private Vector2 inputDirection;
     [SerializeField] private float speed;
@@ -19,6 +21,7 @@ public class CharacterController : MonoBehaviour
     void Awake()
     {
         characterManagerScript = GetComponent<CharacterManager>();
+        spriteRendererCharacter = GetComponent<SpriteRenderer>();
 
         // Get the actions through InputSystem
         playerInput = GetComponent<PlayerInput>();

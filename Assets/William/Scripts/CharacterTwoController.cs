@@ -13,9 +13,18 @@ public class CharacterTwoController : CharacterController
     [SerializeField] private float energyRecoveryRate;
     private float currentEnergy;
 
+    public Sprite characterTwoSprite;
+    // private Vector3 characterTwoColliderCenter = new Vector3(-0.05f, 2.95f, 0);
+    // private Vector3 characterTwoColliderSize = new Vector3(7, 7, 0.2f);
+
     // Enable Input System Actions only when object is enabled in scene
     void OnEnable()
     {
+        spriteRendererCharacter.sprite = characterTwoSprite;
+        // characterCollider.center = new Vector3(-0.05f, 2.95f, 0);
+        // characterCollider.size = new Vector3(7, 7, 0.2f);
+
+
         currentEnergy = maxEnergy;
 
         // Get the actions through InputSystem

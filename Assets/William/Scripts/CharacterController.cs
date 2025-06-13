@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,7 +6,7 @@ public class CharacterController : MonoBehaviour
 {
     // Variables
     private CharacterManager characterManagerScript;
-    protected SpriteRenderer spriteRendererCharacter;
+    protected SpriteRenderer characterSpriteRenderer;
 
     protected PlayerInput playerInput;
     private InputAction moveAction;
@@ -18,10 +19,12 @@ public class CharacterController : MonoBehaviour
     private Vector2 inputDirection;
     [SerializeField] private float speed;
 
+    protected Animator characterAnimator;
+
     void Awake()
     {
         characterManagerScript = GetComponent<CharacterManager>();
-        spriteRendererCharacter = GetComponent<SpriteRenderer>();
+        characterSpriteRenderer = GetComponent<SpriteRenderer>();
 
         // Get the actions through InputSystem
         playerInput = GetComponent<PlayerInput>();
@@ -31,6 +34,8 @@ public class CharacterController : MonoBehaviour
         switchCharacter = playerInput.actions["SwitchCharacter"];
 
         playerRb = GetComponent<Rigidbody>();
+
+        characterAnimator = GetComponent<Animator>();
     }
 
     // Enable Input only when object is enabled in scene
@@ -56,8 +61,34 @@ public class CharacterController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(inputDirection.x  * speed, playerRb.linearVelocity.y, inputDirection.y  * speed);
+        Vector3 movement = new Vector3(inputDirection.x * speed, playerRb.linearVelocity.y, inputDirection.y * speed);
         playerRb.linearVelocity = movement;
+
+        
+        //characterAnimator.SetFloat("f_zSpeed", Math.Abs(playerRb.linearVelocity.z));
+
+        if (inputDirection.y > 0)
+        {
+            characterAnimator.SetBool("b_isFrontOriented", false);
+        } else if (inputDirection.y < 0)
+        {
+            characterAnimator.SetBool("b_isFrontOriented", true);
+        }
+
+        if (inputDirection.x > 0)
+        {
+            characterAnimator.SetBool("b_isWalking", true);
+            characterSpriteRenderer.flipX = false;
+        }
+        else if (inputDirection.x < 0)
+        {
+            characterAnimator.SetBool("b_isWalking", true);
+            characterSpriteRenderer.flipX = true;
+        }
+        else
+        {
+            characterAnimator.SetBool("b_isWalking", false);
+        }
     }
 
     // 

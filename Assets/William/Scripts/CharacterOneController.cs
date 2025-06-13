@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,7 +18,7 @@ public class CharacterOneController : CharacterController
     // Enable Input System Actions only when object is enabled in scene
     void OnEnable()
     {
-        spriteRendererCharacter.sprite = characterOneSprite;
+        characterSpriteRenderer.sprite = characterOneSprite;
         // characterCollider.center = new Vector3(0.15f, 3.6f, 0);
         // characterCollider.size = new Vector3(4, 7.3f, 0.2f);
 
@@ -47,6 +48,7 @@ public class CharacterOneController : CharacterController
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            characterAnimator.SetBool("b_isJumping", false);
         }
     }
 
@@ -57,6 +59,9 @@ public class CharacterOneController : CharacterController
 
         playerRb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
         isGrounded = false;
+
+        characterAnimator.SetBool("b_isJumping", true);
+        characterAnimator.SetFloat("f_ySpeed", playerRb.linearVelocity.y);
     }
 
     private void CancelJump(InputAction.CallbackContext context)

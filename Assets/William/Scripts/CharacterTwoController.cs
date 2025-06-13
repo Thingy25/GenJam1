@@ -20,7 +20,7 @@ public class CharacterTwoController : CharacterController
     // Enable Input System Actions only when object is enabled in scene
     void OnEnable()
     {
-        spriteRendererCharacter.sprite = characterTwoSprite;
+        characterSpriteRenderer.sprite = characterTwoSprite;
         // characterCollider.center = new Vector3(-0.05f, 2.95f, 0);
         // characterCollider.size = new Vector3(7, 7, 0.2f);
 

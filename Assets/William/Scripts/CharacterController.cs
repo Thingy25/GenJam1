@@ -14,7 +14,7 @@ public class CharacterController : MonoBehaviour
     protected Rigidbody playerRb;
 
     private Vector2 inputDirection;
-    [SerializeField] private float speed = 10;
+    [SerializeField] private float speed;
 
     void Awake()
     {
@@ -46,14 +46,14 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    void Update()
+    protected virtual void Update()
     {
         inputDirection = moveAction.ReadValue<Vector2>();
     }
 
     void FixedUpdate()
     {
-        Vector2 movement = new Vector2(inputDirection.x * speed, playerRb.linearVelocity.y);
+        Vector3 movement = new Vector3(inputDirection.x  * speed, playerRb.linearVelocity.y, inputDirection.y  * speed);
         playerRb.linearVelocity = movement;
     }
 

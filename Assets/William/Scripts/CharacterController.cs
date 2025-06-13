@@ -15,7 +15,6 @@ public class CharacterController : MonoBehaviour
 
     private Vector2 inputDirection;
     [SerializeField] private float speed = 10;
-    public GameObject pickup;
 
     void Awake()
     {
@@ -50,7 +49,6 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         inputDirection = moveAction.ReadValue<Vector2>();
-        pickup = GameObject.Find("pickup");
     }
 
     void FixedUpdate()

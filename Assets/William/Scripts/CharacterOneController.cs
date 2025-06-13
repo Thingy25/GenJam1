@@ -6,9 +6,9 @@ public class CharacterOneController : CharacterController
     // Variables
     private InputAction jumpAction;
 
-    private bool isGrounded = false;
-    [SerializeField] private float jumpForce = 7;
-    [SerializeField] private float smoothFallFactor = 0.5f;
+    [SerializeField] private bool isGrounded = false;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float smoothFallFactor;
 
     // Enable Input System Actions only when object is enabled in scene
     void OnEnable()
@@ -33,7 +33,7 @@ public class CharacterOneController : CharacterController
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
         // Can only jump if the player is on the ground
         if (collision.gameObject.CompareTag("Ground"))

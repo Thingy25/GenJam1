@@ -42,21 +42,21 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SwitchCharacter",
+                    "name": "Fly",
                     "type": "Button",
-                    "id": "f0d76a38-3cbe-497d-9e7c-78753f794e6e",
+                    "id": "1706a38a-b9dd-4866-a59a-e260718d577c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Fly",
+                    "name": "SwitchCharacter",
                     "type": "Button",
-                    "id": "1706a38a-b9dd-4866-a59a-e260718d577c",
+                    "id": "f0d76a38-3cbe-497d-9e7c-78753f794e6e",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -284,7 +284,7 @@
                 {
                     "name": "",
                     "id": "9808c9ee-4332-4143-894e-48913d203f44",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -295,7 +295,7 @@
                 {
                     "name": "",
                     "id": "792fe0c9-cb6c-44e1-b35a-507278fbd95a",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

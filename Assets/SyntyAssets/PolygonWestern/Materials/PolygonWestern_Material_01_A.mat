@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PolygonWestern_Material_01_A
-  m_Shader: {fileID: 4800000, guid: 649523431f348594281d85c7fd2a1320, type: 3}
+  m_Shader: {fileID: 4800000, guid: e3846e2999e35a046bb965af28e68e56, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -92,9 +92,11 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BlendOp: 0
+    - _Brightness: 0.07
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
+    - _Contrast: 1
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -105,6 +107,10 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
+    - _GrayBrightness: 0
+    - _GrayContrast: 1
+    - _GrayGamma: 1
+    - _Invert: 0.04
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1

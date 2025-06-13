@@ -1,34 +1,71 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System; // Necesario para 'Action'
-
+using System;
 public class CharacterTwoControllerWilson : CharacterControllerWilson
 {
     // Variables
     private InputAction flyAction;
 
-    private bool isGrounded = false;
+    [SerializeField] private bool isGrounded = false;
     private bool isFlying = false;
-    [SerializeField] private float flightForce = 5;
-    [SerializeField] private float maxStamina = 3;
+    [SerializeField] private float flightForce;
+    [SerializeField] private float maxEnergy;
+    [SerializeField] private float energyRecoveryRate;
+    private float currentEnergy;
 
-    // --- NUEVO: Evento para notificar cuando el personaje empieza a volar ---
-    public event Action OnFlyStarted;
+
+   public event Action OnFlyStarted;
 
     // Enable Input System Actions only when object is enabled in scene
     void OnEnable()
     {
+        currentEnergy = maxEnergy;
+
         // Get the actions through InputSystem
         flyAction ??= playerInput.actions["Fly"];
 
         flyAction.performed -= StartFly;
         flyAction.performed += StartFly;
+
+        flyAction.canceled -= StopFly;
+        flyAction.canceled += StopFly;
     }
     void OnDisable()
     {
         if (flyAction != null)
         {
             flyAction.performed -= StartFly;
+            flyAction.canceled -= StopFly;
+        }
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        // Recargar stamina si está en el suelo y no volando
+        if (isGrounded && currentEnergy < maxEnergy)
+        {
+            currentEnergy += energyRecoveryRate * Time.deltaTime;
+            currentEnergy = Mathf.Min(currentEnergy, maxEnergy);
+        } 
+    }
+
+    void FixedUpdate() {
+        // Solo vuela si se está presionando el botón y queda stamina
+        if (isFlying && currentEnergy > 0f)
+        {
+            playerRb.AddForce(Vector3.up * flightForce, ForceMode.Acceleration);
+            currentEnergy -= Time.deltaTime;
+            Debug.Log(currentEnergy);
+        }        
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        // Can only fly if the player is on the ground
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
         }
     }
 
@@ -36,16 +73,20 @@ public class CharacterTwoControllerWilson : CharacterControllerWilson
     {
         if (!isGrounded) return;
 
-        playerRb.AddForce(Vector2.up * flightForce, ForceMode.Impulse);
+        //playerRb.AddForce(Vector2.up * flightForce, ForceMode.Impulse);
+        isFlying = true;
         isGrounded = false;
-        Debug.Log("Evento OnFlyStarted invocado!");
-        // --- NUEVO: Invoca el evento cuando el vuelo comienza ---
-        OnFlyStarted?.Invoke(); // Notifica a los suscriptores
-       
+
+        // --- NEW: Invokes the event when the flight starts ---
+        OnFlyStarted?.Invoke(); // Notify subscribers
+
+
     }
 
-    private void StopFly()
+    private void StopFly(InputAction.CallbackContext callback)
     {
-        // Tu l�gica para detener el vuelo, si la tienes
+        playerRb.AddForce(Vector3.up * -flightForce, ForceMode.Acceleration);
+
+        isFlying = false;
     }
 }

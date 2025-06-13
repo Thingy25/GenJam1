@@ -13,10 +13,6 @@ GameObject:
   - component: {fileID: 2120074343027142081}
   - component: {fileID: 4985590432845729324}
   - component: {fileID: 353887069002585171}
-  - component: {fileID: 5221410701511061522}
-  - component: {fileID: 2866986833053740979}
-  - component: {fileID: 6234736482917661934}
-  - component: {fileID: 4607719019395356211}
   - component: {fileID: 7521033777865775985}
   - component: {fileID: 4748558674933296245}
   - component: {fileID: 6797501979324248161}
@@ -148,64 +144,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &5221410701511061522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1586675525157283446}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8555d76884479a43a9e388bff70c25c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
---- !u!114 &2866986833053740979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1586675525157283446}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4646a08e87abc814ca215a9d309d4fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedCharacter: 0
-  characterOneControllerScript: {fileID: 0}
-  characterTwoControllerScript: {fileID: 0}
---- !u!114 &6234736482917661934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1586675525157283446}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6d28b748efb6d428e2613937b3ce26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 7
-  smoothFallFactor: 0.5
---- !u!114 &4607719019395356211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1586675525157283446}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b22f1c094e35d0429ebd8e508321535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  flightForce: 5
-  maxStamina: 3
 --- !u!114 &7521033777865775985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199ca3a7ac495c24c818092160e739e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterTwoController: {fileID: 0}
+  characterTwoController: {fileID: 6863748666350579066}
   flySound: {fileID: 8300000, guid: 1c2e47fbd1abb1c42add6e7eb0d4ef55, type: 3}
 --- !u!114 &8539604705780575851
 MonoBehaviour:
@@ -376,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6929afb9dbc43984aba714d53e0204c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterOneController: {fileID: 0}
+  characterOneController: {fileID: 7354615433364226934}
   jumpSound: {fileID: 8300000, guid: 6d405fb20b887a64880c773a943493c8, type: 3}
 --- !u!1 &7208642088537032235
 GameObject:
@@ -528,7 +466,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

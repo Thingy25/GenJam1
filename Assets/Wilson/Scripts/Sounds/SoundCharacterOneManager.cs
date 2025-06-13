@@ -11,6 +11,7 @@ public class SoundCharacterOneManager : MonoBehaviour
 
     [Header("Clips de Sonido")]
     [SerializeField] private AudioClip jumpSound; // Sonido al saltar
+    [SerializeField] private AudioClip slideSound;
 
     void Awake()
     {
@@ -27,6 +28,8 @@ public class SoundCharacterOneManager : MonoBehaviour
         {
             Debug.LogError("SoundCharacterOneManager: No se encontró un AudioSource en la Cámara Principal. Asegúrate de añadir uno.");
         }
+
+
     }
 
     void OnEnable()
@@ -34,8 +37,15 @@ public class SoundCharacterOneManager : MonoBehaviour
         // Suscribirse al evento de salto solo si el controlador y la fuente de audio existen
         if (characterOneController != null && playerAudioSource != null)
         {
+            characterOneController.OnJumpStarted -= PlayJumpSound;
             characterOneController.OnJumpStarted += PlayJumpSound;
+
+            characterOneController.OnSlideStarted -= StartSlideSound;
+            characterOneController.OnSlideStarted += StartSlideSound;
+            characterOneController.OnSlideStopped -= StopSlideSound;
+            characterOneController.OnSlideStopped += StopSlideSound;
         }
+
     }
 
     void OnDisable()
@@ -43,7 +53,13 @@ public class SoundCharacterOneManager : MonoBehaviour
         // Desuscribirse del evento
         if (characterOneController != null && playerAudioSource != null)
         {
-            characterOneController.OnJumpStarted -= PlayJumpSound;
+            characterOneController.OnJumpStarted -= PlayJumpSound; // Limpiar para evitar duplicados
+            characterOneController.OnJumpStarted += PlayJumpSound;
+            characterOneController.OnSlideStarted -= StartSlideSound;
+            characterOneController.OnSlideStarted += StartSlideSound;
+            characterOneController.OnSlideStopped -= StopSlideSound;
+            characterOneController.OnSlideStopped += StopSlideSound;
+            StopSlideSound();
         }
     }
 
@@ -59,6 +75,29 @@ public class SoundCharacterOneManager : MonoBehaviour
         {
             if (playerAudioSource == null) Debug.LogError("playerAudioSource es nulo en PlayJumpSound.");
             if (jumpSound == null) Debug.LogError("jumpSound es nulo en PlayJumpSound.");
+        }
+    }
+    // --- NUEVO: Funciones para el sonido de deslizamiento ---
+    private void StartSlideSound()
+    {
+        if (playerAudioSource != null && slideSound != null)
+        {
+            // Detener cualquier sonido actual del AudioSource y reproducir el de deslizamiento en bucle
+            playerAudioSource.Stop();
+            playerAudioSource.clip = slideSound;
+            playerAudioSource.loop = true; // El sonido de deslizamiento suele ser en bucle
+            playerAudioSource.Play();
+    
+        }
+
+    }
+    private void StopSlideSound()
+    {
+        if (playerAudioSource != null && playerAudioSource.isPlaying && playerAudioSource.clip == slideSound)
+        {
+            playerAudioSource.Stop();
+            playerAudioSource.loop = false; // Importante para que no afecte otros sonidos
+     
         }
     }
 }

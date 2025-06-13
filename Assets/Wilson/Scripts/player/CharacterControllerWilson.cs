@@ -13,7 +13,7 @@ public class CharacterControllerWilson : MonoBehaviour
 
     protected Rigidbody playerRb;
 
-    private Vector2 inputDirection;
+    protected Vector2 inputDirection;
     [SerializeField] private float speed = 10;
 
     void Awake()
@@ -46,9 +46,14 @@ public class CharacterControllerWilson : MonoBehaviour
         }
     }
 
-    void Update()
+    protected virtual void Update()
     {
         inputDirection = moveAction.ReadValue<Vector2>();
+
+        // Este es CLAVE para ver si estás recibiendo input horizontal
+        if (inputDirection.magnitude > 0.05f) // Si hay algún input significativo
+        {
+        }
     }
 
     void FixedUpdate()

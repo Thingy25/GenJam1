@@ -645,8 +645,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  flightForce: 5
-  maxStamina: 3
+  isGrounded: 0
+  isFlying: 0
+  flightForce: 12
+  maxEnergy: 1.5
+  energyRecoveryRate: 1
 --- !u!114 &1519685748
 MonoBehaviour:
   m_ObjectHideFlags: 0

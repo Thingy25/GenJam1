@@ -154,7 +154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  pickup: {fileID: 0}
 --- !u!114 &4196810694997678886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  pickup: {fileID: 0}
   jumpForce: 7
   smoothFallFactor: 0.5
 --- !u!114 &868087117362005678
@@ -199,7 +197,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  pickup: {fileID: 0}
   flightForce: 5
   maxStamina: 3
 --- !u!114 &8598809891498183606
@@ -281,26 +278,10 @@ MonoBehaviour:
     m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 1af945f8-3782-4fd5-800b-90995d525cea
-    m_ActionName: 'CharacterTwo/Move[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: fb210022-e078-4300-86cc-33b4283308cc
-    m_ActionName: 'CharacterTwo/Look[/XInputControllerWindows/rightStick,/Mouse/delta,/Pen/delta]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 40e1e626-a556-46ce-b6ca-fa37ed7e9d52
-    m_ActionName: 'CharacterTwo/Interact[/Keyboard/e,/XInputControllerWindows/buttonNorth]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a160c657-1793-460f-adff-47214d048fa2
-    m_ActionName: 'CharacterTwo/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a5d17489-d1f2-41d6-ac79-086de5b009e9
-    m_ActionName: 'CharacterTwo/SwitchCharacter[/Keyboard/q,/XInputControllerWindows/buttonEast]'
+    m_ActionId: 1706a38a-b9dd-4866-a59a-e260718d577c
+    m_ActionName: 'Player/Fly[/Keyboard/q]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: CharacterOne
+  m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

@@ -3,6 +3,9 @@ Shader "Custom/GrayscaleInvert"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Contrast ("Contrast", Range(0.0, 3.0)) = 1.0
+        _Brightness ("Brightness", Range(-1.0, 1.0)) = 0.0
+        _Invert ("Invert", Range(0.0, 1.0)) = 0.0
     }
     SubShader
     {
@@ -30,6 +33,9 @@ Shader "Custom/GrayscaleInvert"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+            float _Contrast;
+            float _Brightness;
+            float _Invert;
 
             v2f vert (appdata v)
             {
@@ -43,11 +49,20 @@ Shader "Custom/GrayscaleInvert"
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
                 float gray = dot(col.rgb, float3(0.299, 0.587, 0.114));
-                
-                // Invertimos el gris
-                float invertedGray = 1.0 - gray;
 
-                return fixed4(invertedGray, invertedGray, invertedGray, col.a);
+                // Aplicar contraste alrededor de gris medio (0.5)
+                gray = (gray - 0.5) * _Contrast + 0.5;
+
+                // Aplicar brillo
+                gray += _Brightness;
+
+                // Saturar para evitar desbordes
+                gray = saturate(gray);
+
+                // Inversión controlada (valor continuo, no condicional)
+                gray = lerp(gray, 1.0 - gray, _Invert);
+
+                return fixed4(gray, gray, gray, col.a);
             }
             ENDCG
         }

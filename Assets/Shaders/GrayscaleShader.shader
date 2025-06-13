@@ -3,6 +3,9 @@ Shader "Custom/Grayscale"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _GrayContrast ("Contrast", Range(0.0, 3.0)) = 1.0
+        _GrayBrightness ("Brightness", Range(-1.0, 1.0)) = 0.0
+        _GrayGamma ("Gamma", Range(0.2, 2.5)) = 1.0
     }
     SubShader
     {
@@ -30,6 +33,9 @@ Shader "Custom/Grayscale"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+            float _GrayContrast;
+            float _GrayBrightness;
+            float _GrayGamma;
 
             v2f vert (appdata v)
             {
@@ -43,9 +49,16 @@ Shader "Custom/Grayscale"
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
                 float gray = dot(col.rgb, float3(0.299, 0.587, 0.114));
+
+                gray = (gray - 0.5) * _GrayContrast + 0.5;
+                gray += _GrayBrightness;
+                gray = saturate(gray);
+                gray = pow(gray, _GrayGamma);
+
                 return fixed4(gray, gray, gray, col.a);
             }
             ENDCG
         }
     }
 }
+

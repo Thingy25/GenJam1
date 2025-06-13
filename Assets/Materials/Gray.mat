@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: InvertColorsMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: ece86829945388b42925e9bb9bafe760, type: 3}
+  m_Name: Gray
+  m_Shader: {fileID: 4800000, guid: 649523431f348594281d85c7fd2a1320, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -113,6 +113,9 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _GrayBrightness: 0
+    - _GrayContrast: 1
+    - _GrayGamma: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005

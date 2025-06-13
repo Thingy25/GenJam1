@@ -4132,7 +4132,7 @@ GameObject:
   - component: {fileID: 998007645251139436}
   m_Layer: 0
   m_Name: SM_Env_Beach_08
-  m_TagString: Untagged
+  m_TagString: PassThrough
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7590,6 +7590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Beach_08 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 173300, guid: 4b071b28a6248a54faf510209fcfad6f, type: 3}
+      propertyPath: m_TagString
+      value: PassThrough
+      objectReference: {fileID: 0}
     - target: {fileID: 442400, guid: 4b071b28a6248a54faf510209fcfad6f, type: 3}
       propertyPath: m_RootOrder
       value: 184
@@ -9719,6 +9723,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Bone_Skull_02
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c860c6b9ee33f6d4b812bb7643b7d19f, type: 3}
+      propertyPath: m_TagString
+      value: PassThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10678,6 +10686,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Beach_08 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 173300, guid: 4b071b28a6248a54faf510209fcfad6f, type: 3}
+      propertyPath: m_TagString
+      value: PassThrough
+      objectReference: {fileID: 0}
     - target: {fileID: 442400, guid: 4b071b28a6248a54faf510209fcfad6f, type: 3}
       propertyPath: m_RootOrder
       value: 184
@@ -11283,6 +11295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Bone_Rigcage_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9620931498ddf974e98d2495165a6350, type: 3}
+      propertyPath: m_TagString
+      value: PassThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11665,6 +11681,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Beach_08 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 173300, guid: 4b071b28a6248a54faf510209fcfad6f, type: 3}
+      propertyPath: m_TagString
+      value: PassThrough
+      objectReference: {fileID: 0}
     - target: {fileID: 442400, guid: 4b071b28a6248a54faf510209fcfad6f, type: 3}
       propertyPath: m_RootOrder
       value: 184
@@ -11823,7 +11843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425396, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.1160002
+      value: 1.54
       objectReference: {fileID: 0}
     - target: {fileID: 425396, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12082,6 +12102,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9620931498ddf974e98d2495165a6350, type: 3}
       propertyPath: m_Name
       value: SM_Env_Bone_Rigcage_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9620931498ddf974e98d2495165a6350, type: 3}
+      propertyPath: m_TagString
+      value: PassThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13027,6 +13051,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Beach_08 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 173300, guid: 4b071b28a6248a54faf510209fcfad6f, type: 3}
+      propertyPath: m_TagString
+      value: PassThrough
+      objectReference: {fileID: 0}
     - target: {fileID: 442400, guid: 4b071b28a6248a54faf510209fcfad6f, type: 3}
       propertyPath: m_RootOrder
       value: 184
@@ -13152,6 +13180,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9620931498ddf974e98d2495165a6350, type: 3}
       propertyPath: m_Name
       value: SM_Env_Bone_Rigcage_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9620931498ddf974e98d2495165a6350, type: 3}
+      propertyPath: m_TagString
+      value: PassThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13330,6 +13362,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Beach_08 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 173300, guid: 4b071b28a6248a54faf510209fcfad6f, type: 3}
+      propertyPath: m_TagString
+      value: PassThrough
+      objectReference: {fileID: 0}
     - target: {fileID: 442400, guid: 4b071b28a6248a54faf510209fcfad6f, type: 3}
       propertyPath: m_RootOrder
       value: 184
@@ -13406,7 +13442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425396, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.1859999
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 425396, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13443,13 +13479,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 159930, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7730838813334254363}
   m_SourcePrefab: {fileID: 100100000, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
 --- !u!4 &9090649620354318521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 425396, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
   m_PrefabInstance: {fileID: 9090649620354448653}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9090649620354583991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 159930, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
+  m_PrefabInstance: {fileID: 9090649620354448653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7730838813334254363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9090649620354583991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50dcb0254eea1fd4c9f4e9fc4b3402b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToMove: 1.1
 --- !u!1001 &9139193487677221773
 PrefabInstance:
   m_ObjectHideFlags: 0

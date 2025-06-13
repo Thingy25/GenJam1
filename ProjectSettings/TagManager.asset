@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - PassThrough
+  - Core
   layers:
   - Default
   - TransparentFX

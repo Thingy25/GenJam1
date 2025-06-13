@@ -8,12 +8,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PolyKnights_Mat_01
-  m_Shader: {fileID: 4800000, guid: 649523431f348594281d85c7fd2a1320, type: 3}
+  m_Shader: {fileID: 4800000, guid: b4898caddca37fb47b094730eda8a9ce, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _EMISSION
+  - _INVERT_ON
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -88,9 +89,11 @@ Material:
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
+    - _Brightness: 0.97
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
+    - _Contrast: 2.15
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -99,9 +102,16 @@ Material:
     - _DstBlendAlpha: 0
     - _EmissionScaleUI: 0
     - _EnvironmentReflections: 1
+    - _Gamma: 1.41
     - _GlossMapScale: 1
     - _Glossiness: 0.2
     - _GlossyReflections: 1
+    - _GrayBrightness: -0.04
+    - _GrayContrast: 1.01
+    - _GrayGamma: 1.28
+    - _InvBrightness: -0.5
+    - _InvContrast: 0.5
+    - _Invert: 0.966
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1

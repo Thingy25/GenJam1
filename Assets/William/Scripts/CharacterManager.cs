@@ -15,10 +15,11 @@ public class CharacterManager : MonoBehaviour
         characterOneControllerScript = GetComponent<CharacterOneController>();
         characterTwoControllerScript = GetComponent<CharacterTwoController>();
 
-        currentController = characterOneControllerScript;
+        currentController = characterTwoControllerScript;
         currentController.enabled = true;
+        selectedCharacter = CharacterType.two;
 
-        characterTwoControllerScript.enabled = false;
+        characterOneControllerScript.enabled = false;
     }
 
     public void ToggleCharacter()

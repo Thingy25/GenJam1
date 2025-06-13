@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PolyKnights_Mat_Variation_04_Dark
-  m_Shader: {fileID: 4800000, guid: b4898caddca37fb47b094730eda8a9ce, type: 3}
+  m_Shader: {fileID: 4800000, guid: e3846e2999e35a046bb965af28e68e56, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -104,8 +104,8 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.2
     - _GlossyReflections: 1
-    - _GrayBrightness: 0.12
-    - _GrayContrast: 1.3
+    - _GrayBrightness: 0.16
+    - _GrayContrast: 1.16
     - _GrayGamma: 1.42
     - _Invert: 0
     - _Metallic: 0

@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem; // Necesario si usas el Input System
+using UnityEngine.InputSystem; 
 
 
 public class PlayerMovementDependentChild : MonoBehaviour
@@ -8,24 +8,23 @@ public class PlayerMovementDependentChild : MonoBehaviour
     public Transform childToMove;
 
     [Tooltip("La fuerza/distancia del desplazamiento del objeto anidado.")]
-    public float displacementMagnitude = 0.5f;
+    public float displacementMagnitude = 1.5f;
 
-    [Tooltip("La velocidad con la que el objeto anidado se mueve a su nueva posición.")]
+    [Tooltip("La velocidad con la que el objeto anidado se mueve a su nueva posiciï¿½n.")]
     public float smoothSpeed = 5f;
 
-    // Referencia al PlayerInput para obtener la dirección de movimiento.
-    // Podrías pasársela desde tu CharacterController si este script no está en el mismo GameObject.
+    // Referencia al PlayerInput para obtener la direcciï¿½n de movimiento.
+    // Podrï¿½as pasï¿½rsela desde tu CharacterController si este script no estï¿½ en el mismo GameObject.
     private PlayerInput playerInput;
     private InputAction moveAction;
 
-    // Para almacenar la dirección de entrada del jugador
+    // Para almacenar la direcciï¿½n de entrada del jugador
     private Vector2 currentInputDirection;
     private Vector2 previousInputDirection;
 
     void Awake()
     {
-        // Asegúrate de que este script esté en el mismo GameObject que PlayerInput
-        playerInput = GetComponentInParent<PlayerInput>(); // Busca el PlayerInput en los padres si no está en el mismo GO
+        playerInput = GetComponentInParent<PlayerInput>(); // Busca el PlayerInput en los padres si no estï¿½ en el mismo GO
         if (playerInput == null)
         {
             playerInput = GetComponent<PlayerInput>(); // Intenta en el mismo GO
@@ -33,11 +32,11 @@ public class PlayerMovementDependentChild : MonoBehaviour
 
         if (playerInput != null)
         {
-            moveAction = playerInput.actions["Move"]; // Asume que tienes una acción "Move"
+            moveAction = playerInput.actions["Move"]; // Asume que tienes una acciï¿½n "Move"
         }
         else
         {
-            Debug.LogError("PlayerInput no encontrado. Asegúrate de que el jugador tenga el componente PlayerInput.");
+            Debug.LogError("PlayerInput no encontrado. Asegï¿½rate de que el jugador tenga el componente PlayerInput.");
         }
 
         if (childToMove == null)
@@ -50,17 +49,10 @@ public class PlayerMovementDependentChild : MonoBehaviour
     {
         if (moveAction != null)
         {
-            // Lee la dirección de movimiento del Input System
+            // Lee la direcciï¿½n de movimiento del Input System
             currentInputDirection = moveAction.ReadValue<Vector2>();
         }
 
-        // Calcula la posición objetivo local para el GameObject anidado
-        // La dirección de input es 2D (X, Y). La convertimos a 3D (X, Z) para el movimiento en el suelo.
-        /*Vector3 targetLocalPosition = new Vector3(
-            currentInputDirection.x * displacementMagnitude,
-            0f, // No movemos en Y localmente a menos que sea un juego 3D con movimiento vertical por input
-            currentInputDirection.y * displacementMagnitude
-            );*/
 
         if (currentInputDirection.magnitude > 0.01f) // Evitar normalizar un vector casi cero
         {
@@ -68,35 +60,25 @@ public class PlayerMovementDependentChild : MonoBehaviour
         }
         if (currentInputDirection != previousInputDirection)
         {
-            // Si la dirección ha cambiado, actualiza la posición del hijo
+            // Si la direcciï¿½n ha cambiado, actualiza la posiciï¿½n del hijo
             UpdateChildPositionInstant();
         }
-        // Opcional: Si quieres que el objeto suba/baje ligeramente al moverse:
-        // targetLocalPosition.y = Mathf.Sin(Time.time * moveSpeed) * verticalBobAmount;
-
-        // Mueve el objeto anidado suavemente hacia la posición objetivo
-        // Vector3.Lerp interpola entre la posición actual y la objetivo
-        /*
-        childToMove.localPosition = Vector3.Lerp(
-            childToMove.localPosition, // Posición local actual del hijo
-            targetLocalPosition,      // Posición local deseada
-            Time.deltaTime * smoothSpeed // Velocidad de interpolación
-        );*/
+        
     }
 
     private void UpdateChildPositionInstant()
     {
-        // Calcula la posición objetivo local para el GameObject anidado
-        // La dirección de input es 2D (X, Y). La convertimos a 3D (X, Z) para el movimiento en el suelo.
+        // Calcula la posiciï¿½n objetivo local para el GameObject anidado
+        // La direcciï¿½n de input es 2D (X, Y). La convertimos a 3D (X, Z) para el movimiento en el suelo.
         Vector3 targetLocalPosition = new Vector3(
             currentInputDirection.x * displacementMagnitude,
             0f, // No movemos en Y localmente a menos que sea un juego 3D con movimiento vertical por input
             currentInputDirection.y * displacementMagnitude
         );
 
-        // Asigna la posición de forma INSTANTÁNEA (sin Lerp)
+        // Asigna la posiciï¿½n de forma INSTANTï¿½NEA (sin Lerp)
         childToMove.localPosition = targetLocalPosition;
 
-        Debug.Log($"Posición del hijo actualizada a: {targetLocalPosition} (Input: {currentInputDirection})");
+        Debug.Log($"Posiciï¿½n del hijo actualizada a: {targetLocalPosition} (Input: {currentInputDirection})");
     }
 }

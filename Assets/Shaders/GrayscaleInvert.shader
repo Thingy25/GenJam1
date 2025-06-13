@@ -4,7 +4,7 @@ Shader "Custom/GrayscaleInvert"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _Contrast ("Contrast", Range(0.0, 3.0)) = 1.0
-        _Brightness ("Brightness", Range(-1.0, 1.0)) = 0.0
+        _Brightness ("Brightness", Range(-0.5, 0.5)) = 0.0
         _Invert ("Invert", Range(0.0, 1.0)) = 0.0
     }
     SubShader

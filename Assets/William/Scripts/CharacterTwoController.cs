@@ -13,9 +13,17 @@ public class CharacterTwoController : CharacterController
     [SerializeField] private float energyRecoveryRate;
     private float currentEnergy;
 
+    public Sprite characterTwoSprite;
+    // private Vector3 characterTwoColliderCenter = new Vector3(-0.05f, 2.95f, 0);
+    // private Vector3 characterTwoColliderSize = new Vector3(7, 7, 0.2f);
+
     // Enable Input System Actions only when object is enabled in scene
     void OnEnable()
     {
+        // characterCollider.center = new Vector3(-0.05f, 2.95f, 0);
+        // characterCollider.size = new Vector3(7, 7, 0.2f);
+
+
         currentEnergy = maxEnergy;
 
         // Get the actions through InputSystem
@@ -47,7 +55,9 @@ public class CharacterTwoController : CharacterController
         } 
     }
 
-    void FixedUpdate() {
+    protected override void FixedUpdate() {
+        base.FixedUpdate();
+        
         // Solo vuela si se está presionando el botón y queda stamina
         if (isFlying && currentEnergy > 0f)
         {
@@ -63,6 +73,7 @@ public class CharacterTwoController : CharacterController
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            characterAnimator.SetBool("b_isJumping", false);
         }
     }
 
@@ -73,6 +84,7 @@ public class CharacterTwoController : CharacterController
         //playerRb.AddForce(Vector2.up * flightForce, ForceMode.Impulse);
         isFlying = true;
         isGrounded = false;
+        characterAnimator.SetBool("b_isJumping", true);
     }
 
     private void StopFly(InputAction.CallbackContext callback)

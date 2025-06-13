@@ -11843,7 +11843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425396, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.1160002
+      value: 1.54
       objectReference: {fileID: 0}
     - target: {fileID: 425396, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13442,7 +13442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425396, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.1859999
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 425396, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13479,13 +13479,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 159930, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7730838813334254363}
   m_SourcePrefab: {fileID: 100100000, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
 --- !u!4 &9090649620354318521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 425396, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
   m_PrefabInstance: {fileID: 9090649620354448653}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9090649620354583991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 159930, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
+  m_PrefabInstance: {fileID: 9090649620354448653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7730838813334254363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9090649620354583991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50dcb0254eea1fd4c9f4e9fc4b3402b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToMove: 1.1
 --- !u!1001 &9139193487677221773
 PrefabInstance:
   m_ObjectHideFlags: 0

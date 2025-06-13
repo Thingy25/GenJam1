@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface PuzzleInteractable
+public interface IPuzzleInteractable
 {
     void CallInteraction()
     {
